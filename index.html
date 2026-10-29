@@ -1,0 +1,2637 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Favorite Person ❤️</title>
+
+<style>
+  
+/* Membuat animasi lebih ringan pada perangkat yang meminta
+   pengurangan gerakan */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+  
+  
+/* ===== TULISAN CINTA TERBANG ===== */
+#cintaTerbang {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+  
+.teks-cinta-terbang {
+  position: absolute;
+  bottom: -70px;
+  left: 0;
+  white-space: nowrap;
+  font-family: Georgia, serif;
+  font-size: clamp(14px, 3.5vw, 22px);
+  font-weight: bold;
+
+  /* Tulisan lebih transparan */
+  color: rgba(255, 208, 229, 0.55);
+  opacity: 0;
+
+  /* Cahaya pink lembut */
+  text-shadow:
+    0 0 5px rgba(255, 140, 189, 0.35),
+    0 0 12px rgba(255, 79, 155, 0.25);
+
+  animation: cintaMelayang var(--waktu) linear forwards;
+  animation-delay: var(--jeda);
+}
+
+
+ 
+@keyframes cintaMelayang {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-8deg) scale(0.7);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: translate3d(var(--geser), -55vh, 0) rotate(6deg) scale(1);
+    opacity: 0.55;
+  }
+
+  85% {
+    opacity: 0.35;
+  }
+
+  100% {
+    transform: translate3d(calc(var(--geser) * -0.5), -115vh, 0) rotate(-8deg) scale(1.1);
+    opacity: 0;
+  }
+}
+
+
+  
+/* ===== ANIMASI BANYAK BINTANG ===== */
+#langitBintang {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bintang-romantis {
+  position: absolute;
+  display: block;
+  color: #fff2c9;
+  font-size: var(--ukuran);
+  opacity: 0;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 12px #ffc6e0,
+    0 0 22px #ff80b5;
+  animation:
+    bintangBerkilau var(--durasi) ease-in-out infinite;
+  animation-delay: var(--jeda);
+}
+
+@keyframes bintangBerkilau {
+  0%, 100% {
+    opacity: 0.12;
+    transform: scale(0.65) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25) rotate(45deg);
+  }
+}
+
+/* Bintang kecil seperti debu cahaya */
+.debu-bintang {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #fff5e8;
+  box-shadow: 0 0 8px #ffb8d5;
+  animation: debuBerkedip var(--durasi) ease-in-out infinite;
+  animation-delay: var(--jeda);
+}
+
+@keyframes debuBerkedip {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.95; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bintang-romantis,
+  .debu-bintang {
+    animation-duration: 8s;
+  }
+}
+
+  
+/* ===== ANIMASI INTRO LOVE ===== */
+#halamanAwal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at center, #41072e 0%, #180017 48%, #030008 100%);
+  font-family: Georgia, serif;
+}
+
+#loveCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.intro-card {
+  position: relative;
+  z-index: 2;
+  width: min(82%, 330px);
+  padding: 25px 18px;
+  text-align: center;
+  color: white;
+  border: 1px solid rgba(255, 120, 208, .25);
+  border-radius: 18px;
+  background: rgba(45, 0, 35, .48);
+  box-shadow:
+    0 0 35px rgba(255, 0, 155, .12),
+    inset 0 0 25px rgba(255, 80, 200, .04);
+  backdrop-filter: blur(5px);
+  animation: introAppear 1.5s ease both;
+}
+
+.intro-title {
+  font-size: clamp(25px, 7vw, 34px);
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff2fc;
+  text-shadow:
+    0 0 8px #ff65cf,
+    0 0 24px #ff1493;
+  animation: titleGlow 2.5s ease-in-out infinite alternate;
+}
+
+.intro-subtitle {
+  margin-top: 9px;
+  font-family: Arial, sans-serif;
+  font-size: 8px;
+  letter-spacing: 4px;
+  color: #f6a7dd;
+}
+
+.heart-stage {
+  position: relative;
+  height: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7px;
+}
+
+.glow-heart {
+  color: #ff55c7;
+  font-family: Arial, sans-serif;
+  font-size: 110px;
+  line-height: 1;
+  text-shadow:
+    0 0 8px #ff4db8,
+    0 0 20px #ff1493,
+    0 0 42px #e60073;
+  animation: heartBeat 1.4s ease-in-out infinite;
+}
+
+.heart-caption {
+  position: absolute;
+  bottom: 1px;
+  font: 7px Arial, sans-serif;
+  letter-spacing: 4px;
+  color: #f8a8df;
+  opacity: .8;
+}
+
+.intro-message {
+  margin: 18px 0;
+  color: #f9d8ed;
+  font: 13px/1.7 Arial, sans-serif;
+  animation: messageGlow 3s infinite alternate;
+}
+
+.intro-button {
+  padding: 12px 24px;
+  color: white;
+  border: 1px solid rgba(255, 190, 235, .65);
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ed2998, #7e125d);
+  box-shadow: 0 0 20px rgba(255, 20, 147, .35);
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.intro-button span {
+  margin-right: 6px;
+}
+
+.intro-button:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 30px rgba(255, 20, 147, .7);
+}
+
+@keyframes introAppear {
+  from {
+    opacity: 0;
+    transform: scale(.88) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.12);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes titleGlow {
+  from {
+    text-shadow: 0 0 8px #ff65cf;
+  }
+  to {
+    text-shadow: 0 0 25px #ff1493, 0 0 40px #ff65cf;
+  }
+}
+
+@keyframes messageGlow {
+  from { opacity: .65; }
+  to { opacity: 1; }
+}
+
+@media (max-height: 550px) {
+  .intro-card {
+    padding: 12px;
+  }
+  .heart-stage {
+    height: 85px;
+  }
+  .glow-heart {
+    font-size: 75px;
+  }
+  .intro-message {
+    margin: 8px 0;
+  }
+}
+style>
+  /* Efek mengetik untuk tulisan website */
+.typing-active::after {
+  content: "|";
+  display: inline-block;
+  margin-left: 3px;
+  color: #bd547f;
+  animation: kursorKedip 0.7s infinite;
+}
+
+@keyframes kursorKedip {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+ 
+#kursorSurat {
+  display: inline;
+  color: #bd547f;
+  font-weight: bold;
+  animation: kedipSurat 0.7s infinite;
+}
+
+@keyframes kedipSurat {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --pink: #f5a8c8;
+      --pink-light: #fff0f6;
+      --pink-dark: #bd547f;
+      --cream: #fffaf7;
+      --text: #684454;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: linear-gradient(135deg, #fff5f8, #ffe0ed, #fffaf7);
+      min-height: 100vh;
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .welcome-card, .pin-card {
+      width: 100%;
+      max-width: 440px;
+      text-align: center;
+      padding: 34px 24px;
+      background: rgba(255, 255, 255, .85);
+      border: 1px solid white;
+      border-radius: 28px;
+      box-shadow: 0 12px 40px #c66a8b20;
+    }
+
+    .big-heart {
+      font-size: 65px;
+      animation: heartbeat 1.4s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.13); }
+    }
+
+    h1 {
+      font-size: clamp(28px, 7vw, 42px);
+      margin: 14px 0;
+    }
+
+    h2 {
+      font-size: clamp(23px, 5vw, 32px);
+      margin-bottom: 14px;
+    }
+
+    p {
+      line-height: 1.8;
+    }
+
+    .subtitle {
+      margin: 12px 0 22px;
+      color: #936477;
+    }
+
+    .main-btn {
+      border: 0;
+      border-radius: 30px;
+      background: var(--pink-dark);
+      color: white;
+      padding: 13px 23px;
+      margin-top: 18px;
+      box-shadow: 0 5px 14px #bd547f30;
+      transition: .2s;
+    }
+
+    .main-btn:hover {
+      transform: translateY(-2px);
+      background: #a8416b;
+    }
+
+    .pin-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 24px 0;
+    }
+
+    .pin-dots span {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #f0cada;
+    }
+
+    .pin-dots span.filled {
+      background: var(--pink-dark);
+    }
+
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      max-width: 270px;
+      margin: auto;
+    }
+
+    .keypad button {
+      border: 0;
+      border-radius: 16px;
+      background: var(--pink-light);
+      color: var(--pink-dark);
+      font-size: 22px;
+      padding: 15px;
+    }
+
+    .keypad button:hover {
+      background: #f8d6e5;
+    }
+
+    #pinMessage {
+      min-height: 28px;
+      margin-top: 15px;
+      color: #bd547f;
+    }
+
+    #website {
+      display: none;
+      padding-bottom: 40px;
+    }
+
+    header {
+      text-align: center;
+      padding: 42px 18px 24px;
+    }
+
+    header p {
+      max-width: 550px;
+      margin: auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #fff5f8eF;
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--pink-dark);
+      background: white;
+      border-radius: 20px;
+      padding: 9px 13px;
+      font-size: 14px;
+    }
+
+    .section {
+      max-width: 850px;
+      margin: 28px auto;
+      padding: 28px 20px;
+      width: calc(100% - 28px);
+      background: rgba(255, 255, 255, .8);
+      border: 1px solid white;
+      border-radius: 24px;
+      box-shadow: 0 8px 25px #c66a8b12;
+      text-align: center;
+      scroll-margin-top: 90px;
+    }
+
+    .section-title {
+      color: var(--pink-dark);
+    }
+
+    .sub {
+      margin-bottom: 22px;
+      color: #936477;
+    }
+
+    .date-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .date-card {
+      padding: 22px 15px;
+      border-radius: 20px;
+      background: var(--pink-light);
+    }
+
+    .date-card .date {
+      font-size: 19px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .counter {
+      font-size: 18px;
+      color: var(--pink-dark);
+      margin-top: 8px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 14px;
+    }
+
+    .photo-card {
+      background: white;
+      padding: 8px 8px 14px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px #a64d6c15;
+      transform: rotate(-1deg);
+    }
+
+    .photo-card:nth-child(even) {
+      transform: rotate(1deg);
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 10px;
+      background: #ffe6ef;
+    }
+
+    .photo-card p {
+      margin-top: 9px;
+      font-size: 14px;
+    }
+
+    .music-list {
+      display: grid;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .track {
+      width: 100%;
+      border: 1px solid #f4c7d9;
+      border-radius: 15px;
+      background: white;
+      color: var(--text);
+      padding: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .track.active {
+      background: #ffe5ef;
+      border-color: var(--pink-dark);
+    }
+
+    .music-player {
+      margin-top: 20px;
+      padding: 18px;
+      background: var(--pink-light);
+      border-radius: 18px;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 12px;
+    }
+
+    .bouquet {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin: 25px 0;
+    }
+
+    .flower {
+      border: 0;
+      background: #fff0f6;
+      border-radius: 20px;
+      padding: 12px;
+      font-size: 40px;
+      width: 85px;
+      min-height: 95px;
+      transition: .2s;
+    }
+
+    .flower:hover {
+      transform: translateY(-6px) rotate(-4deg);
+      background: #ffdfeb;
+    }
+
+    .paper, .letter {
+      background: #fff9fc;
+      border: 1px solid #f3ccdc;
+      border-radius: 18px;
+      padding: 22px;
+      text-align: left;
+      line-height: 1.9;
+      white-space: pre-line;
+    }
+
+    .paper[hidden] {
+      display: none;
+    }
+
+    .letter {
+      max-height: 350px;
+      overflow-y: auto;
+    }
+
+    .letter p {
+      margin-bottom: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #936477;
+    }
+
+    .floating-heart {
+      position: fixed;
+      bottom: -30px;
+      pointer-events: none;
+      z-index: 20;
+      animation: floatUp 5s linear forwards;
+    }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(-110vh) rotate(30deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section {
+        padding: 24px 15px;
+      }
+
+      .photo-card img {
+        height: 155px;
+      }
+
+      nav a {
+        font-size: 12px;
+        padding: 8px 10px;
+      }
+    }
+    
+/* ===== KUE ULANG TAHUN ROMANTIS ===== */
+#kueUlangTahun .cake-card {
+  max-width: 560px;
+  margin: 25px auto;
+  padding: 28px 18px;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 26px;
+  color: #fff0f5;
+  background: radial-gradient(circle at top, #71334f, #26101f 75%);
+  border: 1px solid rgba(255, 211, 225, .35);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, .25);
+}
+
+.cake-stars {
+  color: #ffe2a9;
+  animation: cakeTwinkle 2s infinite alternate;
+}
+
+.cake-instruction {
+  color: #ffe4ef;
+  line-height: 1.7;
+  animation: cakeFloat 2.5s ease-in-out infinite;
+}
+
+.cake-scene {
+  position: relative;
+  width: 270px;
+  height: 245px;
+  margin: 25px auto 10px;
+  animation: cakeFloat 3s ease-in-out infinite;
+}
+
+.cake-plate {
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  width: 250px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(#ffe9f1, #dba9c0);
+  box-shadow: 0 8px 18px #100711;
+}
+
+.cake-bottom {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  width: 214px;
+  height: 75px;
+  border-radius: 12px 12px 22px 22px;
+  background: linear-gradient(90deg, #b94e79, #f6a9c7, #c44e7c);
+  box-shadow: inset 0 -12px rgba(123, 30, 69, .18);
+}
+
+.cake-middle {
+  position: absolute;
+  bottom: 94px;
+  left: 40px;
+  width: 190px;
+  height: 58px;
+  border-radius: 12px 12px 8px 8px;
+  background: linear-gradient(90deg, #f7c4d8, #fff0f5, #e9a3c0);
+}
+
+.cake-top {
+  position: absolute;
+  bottom: 142px;
+  left: 40px;
+  z-index: 2;
+  width: 190px;
+  height: 35px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 50%;
+  background: #ffe4ef;
+  color: #c44377;
+  font-size: 22px;
+}
+
+.candle {
+  position: relative;
+  width: 15px;
+  height: 62px;
+}
+
+.cake-candles {
+  position: absolute;
+  z-index: 4;
+  bottom: 174px;
+  left: 73px;
+  width: 124px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.candle-tall {
+  height: 76px;
+}
+
+.candle-body {
+  position: absolute;
+  bottom: 0;
+  width: 15px;
+  height: 100%;
+  border-radius: 4px 4px 2px 2px;
+  background: repeating-linear-gradient(
+    135deg, #fff4d7 0 6px, #eaa2bc 6px 12px
+  );
+  box-shadow: inset -3px 0 rgba(140, 50, 80, .15);
+}
+
+.wick {
+  position: absolute;
+  top: -5px;
+  left: 6px;
+  z-index: 2;
+  width: 3px;
+  height: 8px;
+  background: #37202b;
+}
+
+.flame {
+  position: absolute;
+  z-index: 5;
+  top: -27px;
+  left: 1px;
+  width: 13px;
+  height: 23px;
+  border-radius: 50% 50% 45% 45%;
+  background: radial-gradient(ellipse at 50% 70%, #fff8ba 0 20%, #ffb52e 45%, #ff5c45 75%);
+  box-shadow: 0 0 16px #ffb52e, 0 0 30px rgba(255, 115, 70, .6);
+  transform-origin: center bottom;
+  animation: candleFlicker .18s infinite alternate;
+}
+
+.smoke {
+  position: absolute;
+  z-index: 6;
+  display: none;
+  top: -30px;
+  left: 3px;
+  width: 12px;
+  height: 25px;
+  border-radius: 50%;
+  border-right: 3px solid rgba(220, 220, 220, .75);
+}
+
+#kueUlangTahun.candles-out .flame {
+  display: none;
+}
+
+#kueUlangTahun.candles-out .smoke {
+  display: block;
+  animation: smokeRise 1.5s ease-out forwards;
+}
+
+.cake-hint {
+  color: #f7c7d9;
+  line-height: 1.6;
+}
+
+#kueUlangTahun .main-btn {
+  margin: 7px 4px;
+  cursor: pointer;
+}
+
+.birthday-message {
+  margin-top: 24px;
+  padding: 20px 15px;
+  border-radius: 20px;
+  background: rgba(255, 222, 235, .10);
+  border: 1px solid rgba(255, 220, 235, .3);
+  animation: birthdayReveal 1s ease both;
+}
+
+.birthday-message h2 {
+  color: #ffd4e5;
+  animation: cakeTwinkle 2s infinite alternate;
+}
+
+.birthday-message p {
+  line-height: 1.9;
+  white-space: normal;
+}
+
+.birthday-heart {
+  font-size: 25px;
+  animation: heartBeat 1s infinite;
+}
+
+.birthday-sign {
+  color: #ffe2a9;
+  font-style: italic;
+}
+
+@keyframes candleFlicker {
+  from { transform: rotate(-7deg) scale(.95); }
+  to { transform: rotate(7deg) scale(1.08); }
+}
+
+@keyframes cakeFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes cakeTwinkle {
+  from { opacity: .7; }
+  to { opacity: 1; text-shadow: 0 0 14px #ffbdd5; }
+}
+
+@keyframes smokeRise {
+  0% { opacity: .9; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-35px) scale(1.8); }
+}
+
+@keyframes birthdayReveal {
+  from { opacity: 0; transform: translateY(20px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+
+@media (max-width: 400px) {
+  #kueUlangTahun .cake-card { padding: 22px 10px; }
+  .cake-scene { transform: scale(.9); margin-top: 15px; margin-bottom: 0; }
+}
+
+.bouquet-animated {
+  position: relative;
+  width: 300px;
+  height: 330px;
+  margin: 25px auto;
+  animation: buketGoyang 4s ease-in-out infinite;
+}
+
+.bouquet-animated .flower {
+  position: absolute;
+  z-index: 3;
+  border: 0;
+  background: transparent;
+  font-size: 55px;
+  cursor: pointer;
+  filter: drop-shadow(0 5px 4px #0003);
+  transition: transform .3s, filter .3s;
+  animation: bungaMekar 2.5s ease-in-out infinite;
+}
+
+.bouquet-animated .flower:hover {
+  transform: scale(1.22) rotate(-8deg);
+  filter: drop-shadow(0 0 12px #ff9fca);
+}
+
+.flower-1 { top: 12px; left: 112px; }
+.flower-2 { top: 55px; left: 48px; animation-delay: .2s !important; }
+.flower-3 { top: 55px; right: 45px; animation-delay: .4s !important; }
+.flower-4 { top: 105px; left: 75px; animation-delay: .6s !important; }
+.flower-5 { top: 105px; right: 70px; animation-delay: .8s !important; }
+
+.bouquet-stems {
+  position: absolute;
+  z-index: 1;
+  top: 115px;
+  left: 95px;
+  width: 110px;
+  height: 150px;
+}
+
+.bouquet-stems span {
+  position: absolute;
+  left: 50px;
+  top: 0;
+  height: 155px;
+  width: 5px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #285b36, #80a965, #285b36);
+  transform-origin: top;
+}
+
+.bouquet-stems span:nth-child(1) { transform: rotate(-28deg); }
+.bouquet-stems span:nth-child(2) { transform: rotate(-15deg); }
+.bouquet-stems span:nth-child(3) { transform: rotate(0deg); }
+.bouquet-stems span:nth-child(4) { transform: rotate(15deg); }
+.bouquet-stems span:nth-child(5) { transform: rotate(28deg); }
+
+.bouquet-paper {
+  position: absolute;
+  z-index: 2;
+  left: 42px;
+  bottom: 5px;
+  width: 216px;
+  height: 175px;
+  clip-path: polygon(0 0, 100% 0, 68% 100%, 32% 100%);
+  background: linear-gradient(110deg, #dca5b8, #fff0e6 42%, #d9a0b3 75%, #f8dce5);
+  box-shadow: 0 10px 20px #0003;
+}
+
+.bouquet-ribbon {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 35px;
+}
+
+#pesanBunga.paper {
+  max-width: 380px;
+  margin: 20px auto;
+  padding: 24px;
+  text-align: center;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #fff0f6, #f4c9da);
+  color: #702644;
+  box-shadow: 0 10px 30px #0002;
+  animation: pesanMuncul .45s ease both;
+}
+
+#pesanBunga[hidden] {
+  display: none !important;
+}
+
+#pesanBunga p {
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+@keyframes buketGoyang {
+  0%, 100% { transform: rotate(-1deg) translateY(0); }
+  50% { transform: rotate(1deg) translateY(-6px); }
+}
+
+@keyframes bungaMekar {
+  0%, 100% { filter: drop-shadow(0 5px 4px #0003); }
+  50% { filter: drop-shadow(0 0 9px #ffb6d2); }
+}
+
+@keyframes pesanMuncul {
+  from { opacity: 0; transform: translateY(15px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* BUKET FOTO ASLI - GAMBAR TIDAK DIUBAH */
+.buket-foto {
+  position: relative;
+  width: min(100%, 420px);
+  margin: 25px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+  box-shadow: 0 0 28px rgba(255, 80, 150, .18);
+  animation: buketMengambang 4s ease-in-out infinite;
+}
+
+.buket-foto img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* Tombol bunga yang terlihat dan bisa diklik */
+.klik-bunga {
+  position: absolute;
+  z-index: 5;
+  padding: 0;
+  border: 2px solid rgba(255, 220, 238, 0.95);
+  border-radius: 50%;
+  background: rgba(255, 105, 170, 0.28);
+  box-shadow:
+    0 0 10px rgba(255, 120, 190, 0.75),
+    inset 0 0 10px rgba(255, 230, 245, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s, background 0.3s;
+  animation: tandaBungaBerkedip 1.8s ease-in-out infinite;
+}
+
+/* Simbol hati sebagai petunjuk untuk menekan bunga */
+.klik-bunga::after {
+  content: "♡";
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow:
+    0 0 6px #ff4fa3,
+    0 0 14px #ff4fa3;
+}
+
+/* Efek saat bunga disentuh atau diklik */
+.klik-bunga:hover {
+  background: rgba(255, 70, 150, 0.6);
+  transform: scale(1.15);
+  box-shadow: 0 0 25px #ff8fc5;
+}
+
+.klik-bunga:active {
+  transform: scale(0.9);
+}
+
+/* Posisi area klik pada bunga */
+.bunga-1 {
+  left: 34%;
+  top: 34%;
+  width: 18%;
+  height: 10%;
+}
+
+.bunga-2 {
+  left: 20%;
+  top: 41%;
+  width: 20%;
+  height: 10%;
+  animation-delay: 0.2s;
+}
+
+.bunga-3 {
+  left: 48%;
+  top: 41%;
+  width: 20%;
+  height: 10%;
+  animation-delay: 0.4s;
+}
+
+.bunga-4 {
+  left: 30%;
+  top: 48%;
+  width: 20%;
+  height: 10%;
+  animation-delay: 0.6s;
+}
+
+.bunga-5 {
+  left: 55%;
+  top: 48%;
+  width: 18%;
+  height: 10%;
+  animation-delay: 0.8s;
+}
+
+@keyframes tandaBungaBerkedip {
+  0%, 100% {
+    opacity: 0.65;
+    box-shadow: 0 0 8px rgba(255, 120, 190, 0.55);
+  }
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 16px rgba(255, 120, 190, 0.95),
+      0 0 25px rgba(255, 100, 180, 0.45);
+  }
+}
+
+.kilau {
+  position: absolute;
+  z-index: 2;
+  color: white;
+  pointer-events: none;
+  text-shadow: 0 0 8px white, 0 0 18px #ffacd0;
+  animation: kilauBuket 1.8s ease-in-out infinite alternate;
+}
+
+.kilau-1 { top: 28%; left: 48%; font-size: 24px; }
+.kilau-2 { top: 51%; left: 77%; font-size: 30px; animation-delay: .6s; }
+.kilau-3 { top: 64%; left: 28%; font-size: 19px; animation-delay: 1s; }
+
+#buketAsli #pesanBunga {
+  max-width: 380px;
+  margin: 20px auto;
+  padding: 22px;
+  text-align: center;
+  border: 1px solid #efb4cb;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #fff0f6, #f2c7da);
+  color: #702644;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+  animation: pesanBuketMuncul .45s ease both;
+}
+
+#buketAsli #pesanBunga[hidden] {
+  display: none !important;
+}
+
+#buketAsli #pesanBunga p {
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+@keyframes buketMengambang {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes kilauBuket {
+  from { opacity: .35; transform: scale(.7) rotate(0deg); }
+  to { opacity: 1; transform: scale(1.2) rotate(25deg); }
+}
+
+@keyframes pesanBuketMuncul {
+  from { opacity: 0; transform: translateY(15px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+
+/* ===== TEMA BURGUNDY ROMANTIS ===== */
+/* Halaman intro #halamanAwal sengaja tidak diubah */
+
+body {
+  background:
+    radial-gradient(ellipse at top, rgba(150, 20, 65, 0.3), transparent 70%),
+    linear-gradient(145deg, #210710, #4b1027, #210710) !important;
+  background-attachment: fixed !important;
+  color: #fff0f5;
+}
+
+/* Kartu halaman sambutan dan PIN */
+.welcome-card,
+.pin-card {
+  background: linear-gradient(145deg, #651b39, #351020) !important;
+  border: 1px solid rgba(255, 190, 215, 0.4) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  color: #fff0f5 !important;
+}
+
+.welcome-card h1,
+.pin-card h1,
+.welcome-card h2,
+.pin-card h2,
+.welcome-card p,
+.pin-card p {
+  color: #fff0f5 !important;
+}
+
+.subtitle {
+  color: #f4bfd4 !important;
+}
+
+/* Titik PIN */
+.pin-dots span {
+  background: #81435c !important;
+}
+
+.pin-dots span.filled {
+  background: #ff9fc5 !important;
+}
+
+/* Tombol angka PIN */
+.keypad button {
+  background: #792345 !important;
+  color: #ffffff !important;
+  border: 1px solid #bd6b8b !important;
+}
+
+.keypad button:hover {
+  background: #a83a64 !important;
+}
+
+/* Pesan kesalahan PIN */
+#pinMessage {
+  color: #ffc0d8 !important;
+}
+
+/* Navigasi */
+nav {
+  background: rgba(47, 8, 27, 0.94) !important;
+  border-bottom: 1px solid rgba(255, 190, 215, 0.2);
+}
+
+nav a {
+  background: #68203e !important;
+  color: #ffe5ef !important;
+}
+
+nav a:hover {
+  background: #a83a64 !important;
+}
+
+/* Kotak-kotak seluruh website setelah PIN */
+.section {
+  background: rgba(67, 13, 36, 0.88) !important;
+  border: 1px solid rgba(255, 190, 215, 0.25) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+  color: #fff0f5 !important;
+}
+
+/* Judul dan subjudul */
+.section-title {
+  color: #ffc1d8 !important;
+  text-shadow: 0 0 12px rgba(255, 120, 170, 0.25);
+}
+
+.sub,
+header p,
+footer {
+  color: #f4c4d7 !important;
+}
+
+/* Kartu tanggal, galeri, dan pemutar musik */
+.date-card,
+.music-player {
+  background: rgba(111, 31, 62, 0.85) !important;
+  color: #fff0f5 !important;
+}
+
+.photo-card,
+.track {
+  background: #69203f !important;
+  color: #fff0f5 !important;
+  border-color: #a95778 !important;
+}
+
+.photo-card p,
+.track *,
+.music-player * {
+  color: #fff0f5;
+}
+
+/* Surat dan pesan bunga */
+.letter,
+.paper,
+#pesanBunga {
+  background: linear-gradient(145deg, #69203f, #401329) !important;
+  color: #fff0f5 !important;
+  border-color: #bd7895 !important;
+}
+
+.letter *,
+.paper *,
+#pesanBunga * {
+  color: #fff0f5 !important;
+}
+
+/* Kotak hitung mundur */
+.date-card .date,
+.counter {
+  color: #ffc1d8 !important;
+}
+
+/* Input */
+input,
+textarea,
+select {
+  background: #351020 !important;
+  color: #ffffff !important;
+  border: 1px solid #bd6b8b !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #e8b2c8 !important;
+}
+
+/* Tombol utama, kecuali tombol intro */
+.main-btn {
+  background: linear-gradient(135deg, #a82e59, #701638);
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 190, 215, 0.35);
+}
+
+.main-btn:hover {
+  background: linear-gradient(135deg, #d34d7d, #8f2048);
+}
+
+/* Kotak pesan ulang tahun */
+.birthday-message {
+  background: rgba(255, 222, 235, 0.1) !important;
+  color: #fff0f5 !important;
+}
+
+.birthday-message h2,
+.birthday-message p {
+  color: #fff0f5 !important;
+}
+
+.birthday-sign {
+  color: #ffe2a9 !important;
+}
+
+/* Bagian kue tetap memakai desain gelapnya */
+#kueUlangTahun .cake-card {
+  color: #fff0f5;
+}
+
+/* Kotak pesan buket tetap bisa disembunyikan */
+#pesanBunga[hidden] {
+  display: none !important;
+}
+
+
+/* BACKGROUND HATI NEON ANIMASI */
+body {
+    background: #210006;
+}
+
+.love-background {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at center,
+        #43000f 0%,
+        #260006 65%,
+        #160003 100%
+    );
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -100px;
+    color: #ff1744;
+    font-family: Arial, sans-serif;
+    line-height: 1;
+    opacity: 0;
+    text-shadow:
+        0 0 5px #ff1744,
+        0 0 12px #ff1744,
+        0 0 25px #ff003c;
+    animation: heartFloat linear infinite;
+    will-change: transform, opacity;
+}
+
+@keyframes heartFloat {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(-15deg) scale(0.8);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: translate3d(35px, -55vh, 0)
+                   rotate(15deg) scale(1.15);
+        opacity: 0.7;
+    }
+
+    90% {
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: translate3d(-25px, -115vh, 0)
+                   rotate(-20deg) scale(0.9);
+        opacity: 0;
+    }
+}
+
+/* Efek hati berdenyut */
+.floating-heart.glow {
+    animation-name: heartFloat, heartPulse;
+    animation-duration: var(--duration), 1.8s;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite, infinite;
+}
+
+@keyframes heartPulse {
+    0%, 100% {
+        text-shadow:
+            0 0 5px #ff1744,
+            0 0 12px #ff1744;
+    }
+
+    50% {
+        text-shadow:
+            0 0 10px #ff526f,
+            0 0 25px #ff1744,
+            0 0 40px #ff003c;
+    }
+}
+
+/* Menjaga konten website tetap bisa digunakan */
+body > *:not(.love-background) {
+    position: relative;
+}
+
+/* Mengurangi gerakan jika pengguna memilihnya */
+@media (prefers-reduced-motion: reduce) {
+    .floating-heart {
+        animation-duration: 20s !important;
+    }
+}
+  </style>
+</head>
+
+<body>
+  
+<audio id="musikOtomatis" src="lagu-pilihan.mp3" preload="auto" loop></audio>
+
+<button
+  id="tombolMusik"
+  onclick="putarMusik()"
+  style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    padding: 12px 18px;
+    border: 1px solid #ffc1d8;
+    border-radius: 30px;
+    background: #7a1235;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 15px #ff80ab;
+  "
+>
+  🎵 Putar Musik
+</button>
+
+
+  
+<!-- ANIMASI LANGIT PENUH BINTANG -->
+<div id="langitBintang" aria-hidden="true"></div>
+
+  <!-- BACKGROUND FOTO DAN HATI NEON -->
+<div class="love-background" aria-hidden="true">
+    <img
+        class="background-photo"
+        src="foto-pacar.jpg"
+        alt=""
+    >
+
+    <div class="background-overlay"></div>
+    <div class="neon-hearts" id="neonHearts"></div>
+</div>
+
+  <!-- ANIMASI BACKGROUND HATI -->
+<div class="love-background" id="loveBackground"></div>
+
+    <!-- ANIMASI PEMBUKA LOVE -->
+<div id="halamanAwal">
+  <canvas id="loveCanvas"></canvas>
+
+  <div class="intro-card">
+    <div class="intro-title">Happy Birthday</div>
+    <div class="intro-subtitle">A LITTLE SURPRISE FOR YOU</div>
+
+    <div class="heart-stage">
+      <div class="glow-heart">♡</div>
+      <div class="heart-caption">MADE WITH LOVE</div>
+    </div>
+
+    <p class="intro-message">
+      Ada sesuatu yang spesial untukmu...
+    </p>
+
+    <button class="intro-button" onclick="bukaKejutan()">
+      <span>♥</span> Buka Kejutan
+    </button>
+  </div>
+</div>
+
+  <!-- HALAMAN PEMBUKA -->
+  <section class="screen" id="welcome">
+    <div class="welcome-card">
+      <div class="big-heart">💗</div>
+      <p>A little surprise for</p>
+      <h1>Sayanggggg ❤️</h1>
+      <p class="subtitle">
+        Aku punya sesuatu yang spesial buat kamu.
+        Siap membuka hadiah kecil dariku?
+      </p>
+      <button class="main-btn" onclick="bukaPIN()">
+        Buka Hadiah 🎁
+      </button>
+    </div>
+  </section>
+
+  <!-- HALAMAN PIN -->
+  <section class="screen" id="pinScreen" style="display:none">
+    <div class="pin-card">
+      <div class="big-heart">🔐</div>
+      <h2>PIN Rahasia Kita</h2>
+      <p>Masukkan 6 digit PIN untuk membuka hadiah ❤️</p>
+
+      <div class="pin-dots" id="pinDots">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+
+      <div class="keypad">
+        <button onclick="tekanPIN('1')">1</button>
+        <button onclick="tekanPIN('2')">2</button>
+        <button onclick="tekanPIN('3')">3</button>
+        <button onclick="tekanPIN('4')">4</button>
+        <button onclick="tekanPIN('5')">5</button>
+        <button onclick="tekanPIN('6')">6</button>
+        <button onclick="tekanPIN('7')">7</button>
+        <button onclick="tekanPIN('8')">8</button>
+        <button onclick="tekanPIN('9')">9</button>
+        <button onclick="hapusPIN()">⌫</button>
+        <button onclick="tekanPIN('0')">0</button>
+        <button onclick="periksaPIN()">✓</button>
+      </div>
+
+      <p id="pinMessage"></p>
+      <button class="main-btn" onclick="periksaPIN()">Buka ❤️</button>
+    </div>
+  </section>
+
+  <!-- WEBSITE UTAMA -->
+  <main id="website">
+
+    <header>
+      <div class="big-heart">💖</div>
+      <h1>Happy Birthday, Sayanggggg!</h1>
+      <p>
+        Website kecil ini aku buat khusus untuk kamu.
+        Semoga setiap halaman bisa membuat kamu tersenyum.
+        Aku sayang kamu, hari ini dan seterusnya. 💗
+      </p>
+    </header>
+
+    <nav>
+      <a href="#tanggal">Tanggal Spesial</a>
+      <a href="#galeri">Orang Cantik</a>
+      <a href="#bunga">Buket Bunga</a>
+      <a href="#surat">Surat </a>
+    </nav>
+
+    <!-- TANGGAL SUDAH DIATUR -->
+    <section class="section" id="tanggal">
+      <h2 class="section-title">Tanggal Lahir Orang Cantik 💕</h2>
+      <p class="sub">
+       Hari ini hari spesial kamu sayangg
+      </p>
+
+      <div class="date-grid">
+        <div class="date-card">
+          <h3>🎂 Birthday Sayang</h3>
+          <p class="date">30 Oktober 2026</p>
+          <p id="countdown" class="counter">Menghitung...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERI FOTO YANG SUDAH DIATUR -->
+    <section class="section" id="galeri">
+      <h2 class="section-title">My Favorite Person 📸</h2>
+      <p class="sub">Kamu Yang Tak Akan Terganti.</p>
+
+      <div class="gallery">
+        <div class="photo-card">
+          <img src="foto1.jpg" alt="Kenangan pertama">
+               
+          <p hidden>Tambahkan foto1.jpg ke folder foto ❤️</p>
+          <p>Happy Birthday, My Favorite Person Melihat senyum kamu di foto ini selalu jadi bagian paling favorit dalam hariku. 💗</p>
+        </div>
+
+        <div class="photo-card">
+          <img src="foto2.jpg" alt="Kenangan kedua">
+               
+          <p hidden>Tambahkan foto2.jpg ke folder foto ❤️</p>
+          <p>Selamat Ulang Tahun Sayanggg, rumah tempatku pulang bahagia terus yaaa, meskipun hari ini kita ngga bisa tiup lilin bersama 🌷</p>
+        </div>
+
+        <div class="photo-card">
+          <img src="foto3.jpg" alt="Kenangan ketiga">
+               
+          <p hidden>Tambahkan foto3.jpg ke folder foto ❤️</p>
+          <p>Makasih yaa udah lahir ke dunia dan jadi bagian paling indah dalam hidupku 💕</p>
+        </div>
+      </div>
+    </section>
+      
+<!-- HALAMAN KUE ULANG TAHUN -->
+<section class="section" id="kueUlangTahun">
+  <h2 class="section-title">A Wish Just For You 🎂</h2>
+  <p class="sub">Sebelum membuka hadiahmu, ada sesuatu yang spesial ❤️</p>
+
+  <div class="cake-card">
+    <div class="cake-stars">✦　♡　✦　♡　✦</div>
+
+    <h3 class="cake-instruction" id="instruksiKue">
+      Pejamkan mata, buat permohonan,<br>
+      lalu tiup lilinnya, sayanggggg 💗
+    </h3>
+
+    <div class="cake-scene">
+      <div class="cake-candles">
+        <div class="candle">
+          <span class="flame"></span>
+          <span class="wick"></span>
+          <span class="candle-body"></span>
+          <span class="smoke"></span>
+        </div>
+        <div class="candle candle-tall">
+          <span class="flame"></span>
+          <span class="wick"></span>
+          <span class="candle-body"></span>
+          <span class="smoke"></span>
+        </div>
+        <div class="candle">
+          <span class="flame"></span>
+          <span class="wick"></span>
+          <span class="candle-body"></span>
+          <span class="smoke"></span>
+        </div>
+      </div>
+
+      <div class="cake-top">
+        <span>♡</span><span>♡</span><span>♡</span>
+      </div>
+      <div class="cake-middle"></div>
+      <div class="cake-bottom"></div>
+      <div class="cake-plate"></div>
+    </div>
+
+    <p class="cake-hint" id="petunjukKue">
+      Tarik napas... berdoa dulu... ✨
+    </p>
+
+    <button class="main-btn" id="tombolTiup" onclick="tiupKue()">
+      💨 Tiup Lilinnya
+    </button>
+    
+<audio id="musikHappyBirthday" preload="auto">
+  <source src="happy-birthday.mp3" type="audio/mpeg">
+</audio>
+
+
+    <button class="main-btn" id="tombolMic" onclick="aktifkanTiupMic()">
+      🎤 Tiup Lewat Mikrofon
+    </button>
+
+    <div class="birthday-message" id="ucapanKue" hidden>
+      <div class="birthday-heart">💗 💖 💗</div>
+      <h2>Happy Birthday, Sayanggggg! 🎂</h2>
+      <p>
+        Semoga semua doa dan harapanmu menjadi kenyataan.
+        Semoga kamu selalu sehat, bahagia, dan dikelilingi
+        hal-hal baik. Terima kasih sudah hadir di hidupku.
+        Aku sayang kamu, hari ini dan seterusnya. ❤️
+      </p>
+      <p class="birthday-sign">With all my love 💌</p>
+      <button class="main-btn" onclick="lanjutKeBuket()">
+        Lanjut Buka Buket Bunga 💐
+      </button>
+    </div>
+  </div>
+  
+<button class="main-btn" onclick="putarMusikUlang()">
+  🎵 Putar Ulang Happy Birthday
+</button>
+</section>
+    </section>
+
+    <!-- BUKET BUNGA -->
+    <section class="section" id="bunga">
+      
+<section class="section" id="buketAsli">
+  <h2 class="section-title">Buket Bunga Untukmu 💐</h2>
+  <p class="sub">Pilih satu bunga, ada pesan kecil dariku untukmu ❤️</p>
+
+  <div class="buket-foto">
+    <img src="buket-asli.jfif" alt="Buket bunga pink dan putih dengan bungkus transparan" />
+
+    <!-- Area klik di atas bunga-bunga -->
+    <button class="klik-bunga bunga-1" onclick="bukaPesan(0)" aria-label="Bunga pertama"></button>
+    <button class="klik-bunga bunga-2" onclick="bukaPesan(1)" aria-label="Bunga kedua"></button>
+    <button class="klik-bunga bunga-3" onclick="bukaPesan(2)" aria-label="Bunga ketiga"></button>
+    <button class="klik-bunga bunga-4" onclick="bukaPesan(3)" aria-label="Bunga keempat"></button>
+    <button class="klik-bunga bunga-5" onclick="bukaPesan(4)" aria-label="Bunga kelima"></button>
+
+    <span class="kilau kilau-1">✦</span>
+    <span class="kilau kilau-2">✧</span>
+    <span class="kilau kilau-3">✦</span>
+  </div>
+
+  <div id="pesanBunga" class="paper" hidden>
+    <p id="isiPesan"></p>
+    <button class="main-btn" onclick="tutupPesan()">Tutup ❤️</button>
+  </div>
+</section>
+
+
+    </section>
+
+    <!-- SURAT CINTA -->
+    
+<section class="section" id="surat">
+  <h2 class="section-title">A Little Letter For You 💌</h2>
+
+  <p class="sub">Ada sesuatu yang ingin aku sampaikan.</p>
+
+  <div class="letter" id="kotakSurat"
+       style="max-height:350px; overflow-y:auto;">
+
+    <div id="isiSuratMengetik"></div>
+    <span id="kursorSurat">|</span>
+
+  </div>
+
+  <button class="main-btn" onclick="ulangSurat()">
+    Baca Lagi 💗
+  </button>
+</section>
+
+
+    
+<!-- PESAN TERAKHIR DENGAN EFEK MENGETIK -->
+<section  class="section" id="pesanTerakhir">
+  <h2 class="section-title">One Last Thing, My Love 💌</h2>
+  <p class="sub">Pesan terakhir khusus untukmu ❤️</p>
+
+  <div class="letter">
+    <p>
+      Sayanggggg, happy birthday yaa! ❤️ Makasihhhhhhh
+      udah hadir di hidupku. Sejak 27 Juni 2024,
+      kamu menjadi bagian indah dari cerita hidupku.
+      Aku berharap kamu selalu sehat, bahagia, dan
+      bisa meraih semua impianmu.
+
+      Semoga kita terus saling menjaga, memahami,
+      dan menciptakan banyak kenangan indah bersama.
+      Aku mungkin belum sempurna, tetapi aku ingin
+      terus belajar menjadi seseorang yang lebih baik
+      untuk kita.
+
+      Happy birthday, my favorite person.
+      I love you, sayanggggg. Hari ini dan seterusnya. ❤️
+    </p>
+  </div>
+</section>
+
+    <footer>
+      Dibuat dengan sepenuh hati untuk cantikkuuuuuuuu 💗<br>
+      <span id="tahunFooter"></span>
+    </footer>
+
+  </main>
+
+  <script>
+/* ===== MEMBUAT BANYAK BINTANG OTOMATIS ===== */
+(function buatLangitBintang() {
+  const langit = document.getElementById("langitBintang");
+  if (!langit || langit.dataset.sudahDibuat) return;
+
+  langit.dataset.sudahDibuat = "ya";
+
+  // Bintang berkilau
+  for (let i = 0; i < 65; i++) {
+    const bintang = document.createElement("span");
+    bintang.className = "bintang-romantis";
+    bintang.textContent = i % 4 === 0 ? "✦" : "✧";
+
+    bintang.style.left = Math.random() * 100 + "%";
+    bintang.style.top = Math.random() * 100 + "%";
+    bintang.style.setProperty(
+      "--ukuran",
+      (8 + Math.random() * 15) + "px"
+    );
+    bintang.style.setProperty(
+      "--durasi",
+      (1.5 + Math.random() * 3) + "s"
+    );
+    bintang.style.setProperty(
+      "--jeda",
+      (-Math.random() * 5) + "s"
+    );
+
+    langit.appendChild(bintang);
+  }
+
+  // Debu bintang kecil
+  for (let i = 0; i < 100; i++) {
+    const debu = document.createElement("span");
+    debu.className = "debu-bintang";
+
+    debu.style.left = Math.random() * 100 + "%";
+    debu.style.top = Math.random() * 100 + "%";
+    debu.style.setProperty(
+      "--durasi",
+      (1 + Math.random() * 4) + "s"
+    );
+    debu.style.setProperty(
+      "--jeda",
+      (-Math.random() * 5) + "s"
+    );
+
+    langit.appendChild(debu);
+  }
+})();
+
+    const loveBackground = document.getElementById("loveBackground");
+
+if (loveBackground) {
+    const totalHearts = 32;
+
+    for (let i = 0; i < totalHearts; i++) {
+        const heart = document.createElement("span");
+
+        heart.className = "floating-heart";
+        heart.innerHTML = Math.random() > 0.25 ? "♡" : "♥";
+
+        const size = 18 + Math.random() * 48;
+        const duration = 9 + Math.random() * 15;
+        const delay = Math.random() * -24;
+
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.fontSize = size + "px";
+        heart.style.setProperty("--duration", duration + "s");
+        heart.style.animationDuration = duration + "s";
+        heart.style.animationDelay = delay + "s";
+
+        if (Math.random() > 0.5) {
+            heart.classList.add("glow");
+        }
+
+        loveBackground.appendChild(heart);
+    }
+}
+    /* ===== ANIMASI PARTIKEL GALAKSI LOVE ===== */
+(function () {
+  const canvas = document.getElementById("loveCanvas");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  let width = 0;
+  let height = 0;
+  let particles = [];
+  let animationId;
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const total = Math.min(
+      260,
+      Math.max(100, Math.floor(width * height / 4000))
+    );
+
+    particles = Array.from({ length: total }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      size: Math.random() * 1.8 + .3,
+      speed: Math.random() * .45 + .12,
+      alpha: Math.random() * .8 + .2,
+      phase: Math.random() * Math.PI * 2,
+      pink: Math.random() > .65
+    }));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+
+    const cx = width / 2;
+    const cy = height / 2;
+
+    // Cahaya galaksi di tengah
+    const glow = ctx.createRadialGradient(
+      cx, cy, 0, cx, cy, Math.min(width, height) * .43
+    );
+
+    glow.addColorStop(0, "rgba(255, 0, 170, 0.12)");
+    glow.addColorStop(.45, "rgba(130, 0, 110, 0.06)");
+    glow.addColorStop(1, "rgba(0, 0, 0, 0)");
+
+    ctx.fillStyle = glow;
+    ctx.fillRect(0, 0, width, height);
+
+    const time = performance.now() * .001;
+
+    // Bintang bergerak dan berkelap-kelip
+    particles.forEach(p => {
+      p.y += p.speed;
+      p.x += Math.sin(time + p.phase) * .22;
+
+      if (p.y > height) {
+        p.y = 0;
+        p.x = Math.random() * width;
+      }
+
+      const flicker =
+        p.alpha * (.55 + .45 * Math.sin(time * 2 + p.phase));
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = p.pink
+        ? `rgba(255, 100, 210, ${flicker})`
+        : `rgba(255, 240, 255, ${flicker})`;
+      ctx.fill();
+    });
+
+    // Partikel berputar membentuk hati
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(Math.sin(time * .25) * .04);
+
+    const scale = Math.min(width * .018, height * .012, 7);
+    const pulse = 1 + Math.sin(time * 2.4) * .035;
+
+    for (let i = 0; i < 230; i++) {
+      const t = (i / 230) * Math.PI * 2;
+
+      const hx = 16 * Math.pow(Math.sin(t), 3);
+      const hy =
+        13 * Math.cos(t) -
+        5 * Math.cos(2 * t) -
+        2 * Math.cos(3 * t) -
+        Math.cos(4 * t);
+
+      const spread = (Math.random() - .5) * .8;
+      const x = hx * scale * pulse + spread * 2;
+      const y = -hy * scale * pulse + spread * 2;
+
+      const twinkle = .35 + Math.random() * .65;
+
+      ctx.beginPath();
+      ctx.arc(x, y, Math.random() * 1.5 + .35, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, ${80 + Math.floor(Math.random() * 100)}, 210, ${twinkle})`;
+      ctx.fill();
+    }
+
+    ctx.restore();
+    animationId = requestAnimationFrame(draw);
+  }
+
+  resize();
+  draw();
+
+  window.addEventListener("resize", resize);
+
+  // Hentikan animasi setelah halaman pembuka ditutup
+  window.addEventListener("pagehide", () => {
+    cancelAnimationFrame(animationId);
+  });
+})();
+
+/* Tombol menuju halaman PIN yang sudah ada */
+function bukaKejutan() {
+  const intro = document.getElementById("halamanAwal");
+  if (intro) {
+    intro.style.display = "none";
+  }
+}
+    // =====================================
+    // PENGATURAN UTAMA WEBSITE
+    // =====================================
+
+    const PIN_RAHASIA = "270624";
+
+    // Bulan JavaScript dimulai dari 0:
+    // Januari = 0, Juni = 5, Oktober = 9.
+    const TANGGAL_ULANG_TAHUN = {
+      hari: 30,
+      bulan: 9,
+      tahunLahir: 2008
+    };
+
+    const TANGGAL_JADIAN = new Date(2024, 5, 27);
+
+    // Ganti nama dan alamat file lagu sesuai file milikmu.
+    const  DAFTAR_LAGU = [
+  {
+    nama: "Lagu Pertama ❤️",
+    file: "lagu1.mp3"
+  },
+  {
+    nama: "Lagu Kedua 💗",
+    file: "lagu2.mp3"
+  },
+  {
+    nama: "Lagu Ketiga 🌷",
+    file: "lagu3.mp3"
+  }
+];
+
+    const PESAN_BUNGA = [
+      "Kamu adalah salah satu hal paling indah yang hadir di hidupku. 🌹",
+      "Semoga hari-harimu selalu dipenuhi kebahagiaan, sayang. 🌷",
+      "Terima kasih sudah menjadi alasan aku tersenyum. 🌻",
+      "Semoga cinta kita selalu tumbuh dan saling menguatkan. 🌸",
+      "Satu buket bunga untuk satu orang yang sangat spesial. Aku sayang kamu! 💐"
+    ];
+
+    // =====================================
+    // PIN RAHASIA
+    // =====================================
+
+    let pinMasuk = "";
+
+    function bukaPIN() {
+      document.getElementById("welcome").style.display = "none";
+      document.getElementById("pinScreen").style.display = "flex";
+    }
+
+    function tekanPIN(angka) {
+      if (pinMasuk.length >= 6) return;
+
+      pinMasuk += angka;
+      perbaruiTitikPIN();
+
+      if (pinMasuk.length === 6) {
+        periksaPIN();
+      }
+    }
+
+    function hapusPIN() {
+      pinMasuk = pinMasuk.slice(0, -1);
+      perbaruiTitikPIN();
+      document.getElementById("pinMessage").textContent = "";
+    }
+
+    function perbaruiTitikPIN() {
+      const titik = document.querySelectorAll("#pinDots span");
+
+      titik.forEach((el, i) => {
+        el.classList.toggle("filled", i < pinMasuk.length);
+      });
+    }
+
+    function periksaPIN() {
+      if (pinMasuk === PIN_RAHASIA) {
+        document.getElementById("pinScreen").style.display = "none";
+        document.getElementById("website").style.display = "block";
+
+        
+
+perbaruiTanggal();
+buatHati();
+
+const musik = document.getElementById("musikOtomatis");
+
+musik.volume = 0.7;
+musik.currentTime = 0;
+
+musik.play().catch((error) => {
+  console.log("Musik otomatis gagal:", error);
+});
+
+window.scrollTo(0, 0);
+
+      } else {
+        document.getElementById("pinMessage").textContent =
+          "PIN-nya belum benar, coba lagi ya ❤️";
+
+        pinMasuk = "";
+        perbaruiTitikPIN();
+      }
+    }
+
+    // =====================================
+    // TANGGAL ULANG TAHUN DAN TANGGAL JADIAN
+    // =====================================
+
+    function tanggalLokal(tahun, bulan, hari) {
+      return new Date(tahun, bulan, hari);
+    }
+
+    function perbaruiTanggal() {
+      const sekarang = new Date();
+
+      const hariIni = tanggalLokal(
+        sekarang.getFullYear(),
+        sekarang.getMonth(),
+        sekarang.getDate()
+      );
+
+      let ulangTahunBerikutnya = tanggalLokal(
+        sekarang.getFullYear(),
+        TANGGAL_ULANG_TAHUN.bulan,
+        TANGGAL_ULANG_TAHUN.hari
+      );
+
+      const ulangTahunHariIni =
+        sekarang.getMonth() === TANGGAL_ULANG_TAHUN.bulan &&
+        sekarang.getDate() === TANGGAL_ULANG_TAHUN.hari;
+
+      if (hariIni > ulangTahunBerikutnya) {
+        ulangTahunBerikutnya = tanggalLokal(
+          sekarang.getFullYear() + 1,
+          TANGGAL_ULANG_TAHUN.bulan,
+          TANGGAL_ULANG_TAHUN.hari
+        );
+      }
+
+      const sisaHari = Math.round(
+        (ulangTahunBerikutnya - hariIni) / 86400000
+      );
+
+      const countdown = document.getElementById("countdown");
+
+      if (ulangTahunHariIni) {
+        countdown.textContent = "Selamat ulang tahun, sayang! 🎂❤️";
+      } else {
+        countdown.textContent =
+          `Tinggal ${sisaHari} hari lagi! 🎉`;
+      }
+
+      const hariBersama = Math.floor(
+        (hariIni - TANGGAL_JADIAN) / 86400000
+      );
+
+      const lamaJadian = document.getElementById("lamaJadian");
+
+      if (hariBersama >= 0) {
+        lamaJadian.textContent =
+          `Sudah ${hariBersama.toLocaleString("id-ID")} hari bersama ❤️`;
+      } else {
+        lamaJadian.textContent = "Menuju hari spesial kita 💕";
+      }
+
+      document.getElementById("tahunFooter").textContent =
+        `© ${sekarang.getFullYear()} — Made with love ❤️`;
+    }
+
+    // =====================================
+    // DAFTAR MUSIK
+    // =====================================
+
+    let laguAktif = -1;
+
+    
+function buatDaftarLagu() {
+  // Daftar pilihan lagu tidak digunakan lagi.
+}
+
+
+    
+function pilihLagu(index) {
+  // Pemilihan lagu lama sudah tidak digunakan.
+}
+
+
+    // =====================================
+    // PESAN BUKET BUNGA
+    // =====================================
+
+    function bukaPesan(index) {
+      document.getElementById("isiPesan").textContent =
+        PESAN_BUNGA[index];
+
+      document.getElementById("pesanBunga").hidden = false;
+    }
+
+    function tutupPesan() {
+      document.getElementById("pesanBunga").hidden = true;
+    }
+
+    // =====================================
+    // ANIMASI HATI
+    // =====================================
+
+    function buatHati() {
+      const simbol = ["💗", "💕", "💖", "❤️"];
+
+      setInterval(() => {
+        if (document.getElementById("website").style.display === "none") {
+          return;
+        }
+
+        const hati = document.createElement("span");
+        hati.className = "floating-heart";
+        hati.textContent =
+          simbol[Math.floor(Math.random() * simbol.length)];
+
+        hati.style.left = Math.random() * 100 + "vw";
+        hati.style.fontSize = (14 + Math.random() * 18) + "px";
+
+        document.body.appendChild(hati);
+
+        setTimeout(() => hati.remove(), 5000);
+      }, 900);
+    }
+  
+
+/* ======================================
+   EFEK MENGETIK UNTUK SETIAP BAGIAN
+====================================== */
+
+const elemenSudahDiketik = new WeakSet();
+
+function ketikTulisan(elemen, kecepatan = 28) {
+  return new Promise((selesai) => {
+    if (!elemen || elemenSudahDiketik.has(elemen)) {
+      selesai();
+      return;
+    }
+
+    elemenSudahDiketik.add(elemen);
+
+    const teksAsli = elemen.textContent.trim();
+
+    if (!teksAsli) {
+      selesai();
+      return;
+    }
+
+    elemen.textContent = "";
+    elemen.classList.add("typing-active");
+
+    let posisi = 0;
+
+    function ketikBerikutnya() {
+      if (posisi < teksAsli.length) {
+        elemen.textContent += teksAsli.charAt(posisi);
+        posisi++;
+        setTimeout(ketikBerikutnya, kecepatan);
+      } else {
+        elemen.classList.remove("typing-active");
+        selesai();
+      }
+    }
+
+    ketikBerikutnya();
+  });
+}
+
+/* Pilih tulisan yang akan diketik.
+   Foto, tombol, dan pemutar musik tetap berfungsi. */
+
+const targetTulisan = [
+  "#welcome h1",
+  "#welcome p",
+  "#pinScreen h2",
+  "#pinScreen p",
+  "header h1",
+  "header p",
+  ".section h2",
+  ".section .sub",
+  ".date-card h3",
+  ".photo-card p:not([hidden])",
+  ".letter p",
+  "footer"
+].join(",");
+
+const daftarTulisan = document.querySelectorAll(targetTulisan);
+
+const pengamatMengetik = new IntersectionObserver(
+  (daftar) => {
+    daftar.forEach((item) => {
+      if (item.isIntersecting) {
+        ketikTulisan(item.target);
+        pengamatMengetik.unobserve(item.target);
+      }
+    });
+  },
+  {
+    threshold: 0.25
+  }
+);
+
+daftarTulisan.forEach((elemen) => {
+  pengamatMengetik.observe(elemen);
+});
+
+/* Pesan bunga juga muncul dengan efek mengetik */
+const pesanUntukBunga = [
+  "🌹 Kamu adalah salah satu hal terindah yang hadir di hidupku. Aku bersyukur memilikimu. ❤️",
+  "🌷 Semoga setiap hari kamu punya alasan untuk tersenyum dan merasa dicintai. 💗",
+  "🤍 Semoga semua doa dan harapanmu tercapai, sayanggggg. Aku selalu mendoakan yang terbaik untukmu.",
+  "🌹 Terima kasih sudah menjadi bagian dari cerita hidupku sejak 27 Juni 2024. 💌",
+  "💐 Aku ingin terus menciptakan banyak kenangan indah bersamamu. Happy birthday, cantikk! ❤️"
+];
+
+function bukaPesan(nomor) {
+  const kotak = document.getElementById("pesanBunga");
+  const isi = document.getElementById("isiPesan");
+
+  if (!kotak || !isi || !pesanUntukBunga[nomor]) return;
+
+  isi.textContent = pesanUntukBunga[nomor];
+  kotak.hidden = false;
+  kotak.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function tutupPesan() {
+  const kotak = document.getElementById("pesanBunga");
+  if (kotak) kotak.hidden = true;
+}
+
+  
+const isiSuratCinta = `untuk orang favoritku❤️
+
+
+hari ini adalah hari yang paling aku syukuri di antara 365 hari lainnya dalam setahun. hari di mana semesta memilih untuk menghadirkan kamu ke dunia, membawa binar paling terang, dan melukis warna-warna indah yang tidak pernah aku tahu sebelumnya. 
+
+terima kasih ya, sudah bersedia lahir dan tumbuh menjadi jiwa yang seindah ini. terima kasih karena kehadiran kamu—bahkan hanya lewat senyuman yang aku pandangi di galeri foto—selalu berhasil menjadi tempat paling tenang di saat dunia luar sedang berjalan terlalu berisik dan melelahkan. 
+
+lewat hadiah kecil yang aku kirimkan ini, aku ingin menitipkan seluruh doa-doa baik yang tidak bisa aku sampaikan langsung di depanmu. aku berdoa agar langkah kakimu selalu dituntun menuju kebahagiaan, pundakmu selalu dikuatkan, dan hatimu selalu dijaga oleh hal-hal baik yang ada di bumi ini. 
+
+maaf ya, jika di hari spesialmu ini aku belum bisa berada di sampingmu untuk merayakannya bersama. jarak mungkin sedang membatasi fisik kita, tetapi tidak dengan rasa sayangku yang selalu melampaui angka kilometer di antara kita. kamu akan selalu menjadi rumah, menjadi tempatku pulang, dan menjadi takdir terindah yang selalu aku semogakan. 
+
+selamat bertambah usia, manusia favorit aku. berbahagialah hari ini, karena kamu sangat layak untuk itu. 
+
+
+Happy birthday, my favorite person.
+I love you, sayanggggg. ❤️
+
+With all my love,
+Someone who loves you 💗`;
+
+let timerSurat = null;
+
+function mulaiSurat() {
+  clearTimeout(timerSurat);
+
+  const teks = document.getElementById("isiSuratMengetik");
+  const kursor = document.getElementById("kursorSurat");
+  const kotak = document.getElementById("kotakSurat");
+
+  if (!teks || !kursor || !kotak) return;
+
+  let i = 0;
+  teks.textContent = "";
+  kursor.style.display = "inline";
+  kotak.scrollTop = 0;
+
+  function ketik() {
+    if (i < isiSuratCinta.length) {
+      teks.textContent += isiSuratCinta.charAt(i);
+      i++;
+
+      kotak.scrollTop = kotak.scrollHeight;
+      timerSurat = setTimeout(ketik, 45);
+    } else {
+      kursor.style.display = "none";
+    }
+  }
+
+  ketik();
+}
+
+function ulangSurat() {
+  mulaiSurat();
+}
+
+const bagianSurat = document.getElementById("surat");
+
+if (bagianSurat && "IntersectionObserver" in window) {
+  const pengamatSurat = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        mulaiSurat();
+        pengamatSurat.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+
+  pengamatSurat.observe(bagianSurat);
+}
+
+let kueSudahDitiup = false;
+let streamTiup = null;
+let audioTiup = null;
+let frameTiup = null;
+
+function matikanLilin() {
+  if (kueSudahDitiup) return;
+  kueSudahDitiup = true;
+
+  const kue = document.getElementById("kueUlangTahun");
+  const instruksi = document.getElementById("instruksiKue");
+  const petunjuk = document.getElementById("petunjukKue");
+  const tombolTiup = document.getElementById("tombolTiup");
+  const tombolMic = document.getElementById("tombolMic");
+  const ucapan = document.getElementById("ucapanKue");
+
+  kue.classList.add("candles-out");
+  instruksi.innerHTML = "Permohonanmu sudah terkirim ke semesta ✨";
+  petunjuk.textContent = "Yeay! Sekarang waktunya merayakan kamu ❤️";
+  tombolTiup.hidden = true;
+  tombolMic.hidden = true;
+  ucapan.hidden = false;
+  
+const musik = document.getElementById("musikHappyBirthday");
+
+if (musik) {
+  musik.currentTime = 0;
+  musik.play().catch(() => {
+    document.getElementById("petunjukKue").textContent =
+      "Tekan tombol musik jika lagu belum terdengar 🎵";
+  });
+}
+
+
+  if (streamTiup) {
+    streamTiup.getTracks().forEach(track => track.stop());
+    streamTiup = null;
+  }
+  if (frameTiup) cancelAnimationFrame(frameTiup);
+  if (audioTiup) {
+    audioTiup.close();
+    audioTiup = null;
+  }
+}
+
+function tiupKue() {
+  matikanLilin();
+}
+
+async function aktifkanTiupMic() {
+  if (kueSudahDitiup) return;
+
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    document.getElementById("petunjukKue").textContent =
+      "Mikrofon tidak tersedia di browser ini. Gunakan tombol Tiup Lilinnya ya ❤️";
+    return;
+  }
+
+  try {
+    streamTiup = await navigator.mediaDevices.getUserMedia({ audio: true });
+    audioTiup = new AudioContext();
+    const sumber = audioTiup.createMediaStreamSource(streamTiup);
+    const pengukur = audioTiup.createAnalyser();
+    pengukur.fftSize = 1024;
+    sumber.connect(pengukur);
+
+    const data = new Uint8Array(pengukur.fftSize);
+    document.getElementById("petunjukKue").textContent =
+      "Dekatkan mikrofon, lalu tiup sekarang! 💨";
+
+    let suaraKencang = 0;
+
+    function dengarTiupan() {
+      if (kueSudahDitiup) return;
+
+      pengukur.getByteTimeDomainData(data);
+      let jumlah = 0;
+
+      for (let i = 0; i < data.length; i++) {
+        const nilai = (data[i] - 128) / 128;
+        jumlah += nilai * nilai;
+      }
+
+      const volume = Math.sqrt(jumlah / data.length);
+
+      if (volume > 0.12) {
+        suaraKencang++;
+      } else {
+        suaraKencang = Math.max(0, suaraKencang - 1);
+      }
+
+      if (suaraKencang >= 5) {
+        matikanLilin();
+        return;
+      }
+
+      frameTiup = requestAnimationFrame(dengarTiupan);
+    }
+
+    dengarTiupan();
+  } catch (error) {
+    document.getElementById("petunjukKue").textContent =
+      "Mikrofon belum diizinkan. Izinkan akses mikrofon atau tekan Tiup Lilinnya ❤️";
+  }
+}
+
+function lanjutKeBuket() {
+  const buket = Array.from(document.querySelectorAll("section"))
+    .find(section =>
+      section.querySelector(".section-title")?.textContent.includes("Buket Bunga Untukmu")
+    );
+
+  if (buket) {
+    buket.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+function putarMusikUlang() {
+  const musik = document.getElementById("musikHappyBirthday");
+  if (!musik) return;
+
+  musik.currentTime = 0;
+  musik.play().catch(() => {
+    alert("Musik belum bisa diputar. Periksa file happy-birthday.mp3 ya.");
+  });
+}
+
+</script>
+
+<script>
+async function putarMusik() {
+  const musik = document.getElementById("musikOtomatis");
+  const tombol = document.getElementById("tombolMusik");
+
+  try {
+    await musik.play();
+    tombol.textContent = "⏸️ Jeda Musik";
+
+    tombol.onclick = function () {
+      if (musik.paused) {
+        putarMusik();
+      } else {
+        musik.pause();
+        tombol.textContent = "🎵 Putar Musik";
+      }
+    };
+  } catch (error) {
+    tombol.textContent = "❌ Musik gagal diputar";
+    console.error("Penyebab musik gagal:", error);
+  }
+}
+</script>
+
+</body>
+</html>
